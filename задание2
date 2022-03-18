@@ -1,0 +1,43 @@
+ALTER TABLE users
+  ADD email VARCHAR(50) NOT NULL AFTER birthday, 
+  ADD street VARCHAR(50) NOT NULL AFTER email, 
+  ADD addr_index INT(15) NOT NULL AFTER street, 
+  ADD phone INT(15) NOT NULL AFTER addr_index, 
+  ADD company VARCHAR(50) NOT NULL AFTER phone, 
+  ADD job VARCHAR(50) NOT NULL AFTER `company`,
+  ADD city VARCHAR(50) NOT NULL DEFAULT 'Tomsk';
+  
+ALTER TABLE users
+ADD CONSTRAINT UNIQUE (name, patronymic, surname, birthday, email, addr_index, phone)
+
+INSERT INTO users (name, surname, patronymic, birthday, email,street, addr_index, phone, company, job)
+VALUES ('Shannon', 'R', 'Lansberry', '1999-02-09', 'erling1989@gmail.com','Jacksons','12365321','316-307-2028',
+        'Modern Realty', 'Personal appearance worker'),
+        ('George', 'P', 'Burton', '1997-12-24', 'brayan1999@yahoo.com','Cottrill Lane','631229','407-579-3320',
+        'Strawberries', 'Surgical Assistant'),
+        ('Karen', 'L', 'Clark', '1964-06-11', 'hollie_veu9@hotmail.com','Garfield Road','6132602','440-217-5187',
+        'Poore Simon', 'Radio Frequency Identification Device Specialist'),
+        ('Joseph', 'R', 'Behr', '1982-10-21', 'letitia1992@gmail.com','Bel Meadow Drive','9162','801-301-3078',
+        'Scotty', 'Remote Sensing Technician'),
+        ('Todd', 'C', 'Littler', '1991-04-21', 'alexandrin3@hotmail.com','Cambridge Court','7285895','847-644-3113',
+        'HomeBase', 'Choreographer'),
+        ('Robert', 'J', 'Blackwell', '1999-10-22', 'brendan1980@yahoo.com','Liberty Avenue','92734504','617-852-6252',
+        'Childs Restaurants', 'Chef and Head Cook'),
+        ('Jeremy', 'C', 'Morales', '1972-02-05', 'telly1974@yahoo.com','Walkers Ridge Way','6061254','516-205-9380',
+        'KB Toys', 'Forest Fire Fighting and Prevention Supervisor'),
+        ('Alex', 'M', 'Forsythe', '2000-11-11', 'alanna1987@yahoo.com','Saint Marys Avenue','136115328','406-460-5873',
+        'Gallenkamp', 'Foundry Mold and Coremaker'),
+        ('Erik', 'S', 'Olsen', '1999-02-11', 'corrine.koz@yahoo.com','Aaron Smith Drive','1705215','801-514-4293',
+        'All Wound Up', 'Personal Care and Service Worker, All Other'),
+        ('Mamie', 'J', 'Ramsey', '1971-08-01', 'claude_luettg@yahoo.com','College View','621928','620-200-2883',
+        'Monk Home Loans', 'Electro-Mechanical Technician'),
+        ('Kaley', 'E', 'Gish', '2001-11-03', 'candice1983@gmail.com','Hampton Meadows','01725400','619-200-0308',
+        'Waccamaw Pottery', 'Postsecondary Teacher, All Other'),
+        ('David', 'D', 'Bobo', '1977-03-02', 'betty.steh10@yahoo.com','Alexander Drive','7621101','517-930-6932',
+        'Lionel Playworld', 'Validation Engineer'),
+        ('Dominick', 'V', 'Hernandez', '1988-04-21', 'ashlee1992@hotmail.com','Valley Drive','1910876','404-388-3028',
+        'Schaak Electronics', 'Manufacturing Production Technician'),
+        ('Teresa', 'N', 'McIlwain', '1996-02-11', 'arnulfo2002@hotmail.com','Bryan Street','2766407','484-410-2032',
+        'Gene Walter', 'Gaming Change Person and Booth Cashier'),
+        ('Steve', 'G', 'Matt', '1999-01-12', 'SteveGMatt@dayrep.com','Arrowood Drive','32207','215-858-9142',
+        'Realty Solution', 'Statistician');
