@@ -1,11 +1,11 @@
-ALTER TABLE users
-  ADD email VARCHAR(50) NOT NULL AFTER birthday, 
-  ADD street VARCHAR(50) NOT NULL AFTER email, 
-  ADD addr_index INT(15) NOT NULL AFTER street, 
-  ADD phone INT(15) NOT NULL AFTER addr_index, 
-  ADD company VARCHAR(50) NOT NULL AFTER phone, 
-  ADD job VARCHAR(50) NOT NULL AFTER `company`,
-  ADD city VARCHAR(50) NOT NULL DEFAULT 'Tomsk';
+ALTER TABLE users ADD(
+   email VARCHAR(50) NOT NULL AFTER birthday, 
+   street VARCHAR(50) NOT NULL AFTER email, 
+   addr_index INT(15) NOT NULL AFTER street, 
+   phone TEXT(15) NOT NULL AFTER addr_index, 
+   company VARCHAR(50) NOT NULL AFTER phone, 
+   job VARCHAR(50) NOT NULL AFTER `company`,
+   city VARCHAR(50) NOT NULL DEFAULT 'Tomsk');
   
 ALTER TABLE users
 ADD CONSTRAINT UNIQUE (name, patronymic, surname, birthday, email, addr_index, phone)
