@@ -1,0 +1,29 @@
+ALTER TABLE users DROP CONSTRAINT gender;
+ALTER TABLE users DROP CONSTRAINT company;
+
+UPDATE users SET gender = 1;
+UPDATE users SET gender = 2 WHERE id in(3, 4, 5, 8, 15);
+
+INSERT INTO companies (name, INN, OGRN, director, address) VALUES 
+('Gazgolder', '89453017420', '034789402345', 'Cole S. Sprouse', '1125 16th Street'), 
+('Citigroup', '289515412347', '784530159734', 'Betty E. Couper', '1556 Broadway');, 
+('Golo-Polo', '720929705956', '8587201416343', 'Kate M. McCallen', '146 Theodora Station Abbottfort');
+
+UPDATE users SET company = 1 WHERE id in(1, 6, 11);
+UPDATE users SET company = 2 WHERE id in(2, 7, 12);
+UPDATE users SET company = 3 WHERE id in(3, 8, 13);
+UPDATE users SET company = 4 WHERE id in(4, 9, 14);
+UPDATE users SET company = 5 WHERE id in(5, 10, 15);
+
+ALTER TABLE users MODIFY COLUMN gender INT(10);
+ALTER TABLE users MODIFY COLUMN company INT(10);
+
+ALTER TABLE users
+ADD CONSTRAINT genders
+FOREIGN KEY (gender)
+REFERENCES genders(id);
+
+ALTER TABLE users
+ADD CONSTRAINT companies
+FOREIGN KEY (company)
+REFERENCES companies(id);
